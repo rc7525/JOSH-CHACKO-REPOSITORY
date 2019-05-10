@@ -1,0 +1,38 @@
+<% include ../partials/header%>
+ 
+<div class="container">
+    <div class="row normal-font">
+        <div class="col-md-4">
+            <div>
+                <h1><%= user.firstName%>  <%=user.lastName%> </h1>
+                    <h2><em><a class="href-class" href="/follow/<%=user.id%>"><strong>Follow</strong></a></em></h2>
+                <p></p>
+               
+            </div>
+            
+            <div class="thumbnail">
+                <img src="<%= user.avatar %>" alt="user profile image">
+                <div class="caption"><a class="href-class" href="mailto:<%= user.email%>"><%= user.email%></a></div>
+            </div>
+            
+            <p>
+                <%- user.about%>
+            </p>
+        </div>
+        <div class="col-md-8">
+            <h3><%=user.firstName %>'s Poems</h3>
+            <ul>
+                <% poems.forEach(function(poem) { %>
+                    <li><a class="href-class" href="/poems/<%= poem.id%>"><%= poem.name%></a></li>
+                <% }); %>
+            </ul>
+            <h3><%=user.firstName %>'s Prose</h3>
+            <ul>
+                <% proses.forEach(function(prose) { %>
+                    <li><a class="href-class" href="/proses/<%= prose.id%>"><%= prose.name%></a></li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>    
+ </div>
+<% include ../partials/footer %>

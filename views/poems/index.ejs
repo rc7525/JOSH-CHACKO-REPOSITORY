@@ -1,0 +1,121 @@
+<% include ../partials/header%>
+
+<div class="container">
+    <header class="jumbotron special-image-poem">
+        <div class="row">
+            <div class="col-md-12 align-center">
+                <h1 class="special-font-color-white">"Poetry is when an emotion has found its thought and the thought has found words."</h1>
+                <h3 class="special-font-color-white">- Robert Frost</h3>
+                
+                <div class="col-md-12">
+                    <div class="col-md-3">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="col-md-3">
+                            <div class="fill-width"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <form action="/poems/index" method="GET" class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" name="search" placeholder="Search for a Poem..." class="form-control normal-font">
+                                    <div class="fill-small"></div>
+                                    <input type="submit" value="  Search  " class="special-button special-font">
+                                    <% if(currentUser &&  currentUser.isAdmin) { %>
+                                        <div class="fill-small"></div>
+                                        <a class="special-button" href="/poems/new">Add New Poem</a>
+                                    <% } %>    
+                                </div>
+                            </form>
+                        </div>    
+                    </div> 
+                    <div class="col-md-3">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="fill"></div>
+                    </div>
+                </div>
+            
+   
+                <div class="row text-center" id="poem-grid">
+                <% poems.forEach(function(poem){ %>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="<%= poem.image %>" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong><%= poem.name %></strong></h5>
+                            <em class="normal-font"> <%- poem.body.substring(0,50) %> ...</em>
+                            <p></p>
+                            <% if (poem.rating === 0) { %>
+                                <em class="normal-font">No reviews yet.</em>
+                                <% } else { %>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star <% if (poem.rating > 1.5) { %> checked <% } %>"></span>
+                                <span class="fa fa-star <% if (poem.rating > 2.5) { %> checked <% } %>"></span>
+                                <span class="fa fa-star <% if (poem.rating > 3.5) { %> checked <% } %>"></span>
+                                <span class="fa fa-star <% if (poem.rating > 4.5) { %> checked <% } %>"></span>
+                            <% } %>
+                            <a class="normal-font" href="/poems/ <%= poem._id %>"><em style="color:#ff6a00">Read More</em></a>
+                        </div>
+                    </div>
+                </div> 
+                <% }) %>
+            </div>
+
+            <nav aria-label="Page navigation">
+                <% if (pages && pages > 0) { %>
+                <ul class="pagination justify-content-center">
+                    <% if (current == 1) { %>
+                    <li class="page-item disabled"><a class="page-link">First</a></li>
+                    <% } else { %>
+                    <li><a class="page-link" href="/poems">First</a></li>
+                    <% } %>
+             
+                    <% if (current == 1) { %>
+                    <li class="page-item disabled"><a class="page-link">«</a></li>
+                    <% } else { %>
+                    <li><a class="page-link" href="/poems<%if(search){%>?search=<%=search%><%}%>">First</a></li>
+                    <% } %>
+                    
+                    <% if (current == 1) { %>
+                    <li class="disabled"><a>«</a></li>
+                    <% } else { %>
+                    <li><a class="page-link" href="/poems?page=<%= Number(current) - 1 %><%if(search){%>&search=<%=search%><%}%>">«</a></li>
+                    <% } %>
+                    
+                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                    <% if (i !== 1) { %>
+                    <li class="page-item disabled"><a class="page-link">...</a></li>
+                    <% } %>
+                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                    <% if (i == current) { %>
+                    <li class="active"><a class="page-link"><%= i %></a></li>
+                    <% } else { %>
+                    <li><a class="page-link" href="/poems?page=<%= i %><%if(search){%>&search=<%=search%><%}%>"><%= i %></a></li>
+                    <% } %>
+                    <% if (i == Number(current) + 4 && i < pages) { %>
+                    <li class="page-item disabled"><a class="page-link">...</a></li>
+                    <% } %>
+                    <% } %>
+             
+                    <% if (current == pages) { %>
+                    <li class="page-item disabled"><a class="page-link">»</a></li>
+                    <% } else { %>
+                    <li><a class="page-link" href="/poems?page=<%= Number(current) + 1 %><%if(search){%>&search=<%=search%><%}%>">»</a></li>
+                    <% } %>
+             
+                    <% if (current == pages) { %>
+                    <li class="page-item disabled"><a class="page-link">Last</a></li>
+                    <% } else { %>
+                    <li><a class="page-link" href="/poems?page=<%= pages %><%if(search){%>&search=<%=search%><%}%>">Last</a></li>
+                    <% } %>
+                </ul>
+                <% } %>
+            </nav>
+        </div>
+    </div>    
+ </header>    
+</div>    
+
+<% include ../partials/footer %>

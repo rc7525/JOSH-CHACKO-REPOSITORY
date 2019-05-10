@@ -1,0 +1,67 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row normal-font">
+        <div class="col-md-12">
+            <form action="/proses/<%= prose._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group col-md-12" style="text-align: center">
+                        <h2 style="text-align:center">Edit: <%= prose.name %></h2>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-1">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="required" for="inputName">Name</label>
+                        <input class="form-control" type="text" name="prose[name]" value="<%= prose.name %>" required = 'required'>
+                    </div>
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-1">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="required" for="inputImage">Image</label>
+                        <input class="form-control" type="file" name="prose[image]" value="<%= prose.image %>" accept="image/*" placeholder="Image" required = 'required'>
+                    </div>
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-1">
+                    </div>
+                    <div class="form-group col-md-8">
+                        <label class="required" for="inputBody">Content</label>
+                        <textarea class="form-control rounded-0" id="inputBody" rows="8" cols="500" name="prose[body]" required = 'required'><%= prose.body %></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-1">
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <a class="btn btn-default" href="/proses/ <%= prose._id %>"><i class="fa fa-arrow-left"></i> Go back</a>
+                    </div>
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button class="special-button" type="submit">Submit</button>
+                    </div>
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+            </form>
+            <div class="col-md-6">
+               <div class="fill"></div>
+            </div> 
+        </div>    
+    </div>
+</div>   
+
+<% include ../partials/footer %>
+

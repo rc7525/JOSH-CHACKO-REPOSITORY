@@ -1,0 +1,61 @@
+<% include ../partials/header %> 
+
+<div class="container">
+	
+	<div class="row">
+        <div class="col-md-12">
+            <div class="form-row">
+                <div class="form-group col-md-12" style="text-align: center">
+                    <h2>Notifications</h2>
+                </div>
+            </div>
+         </div>
+    </div>
+	
+	<h3>Poem</h3>
+	
+	<ul>
+		<% allNotifications.forEach(function(notification) { %>
+			<% if (notification.poemId) { %>
+				<li>
+					<a href="/poems/<%= notification.poemId %>">
+						<%= notification.poemName %>
+					</a>
+				</li>	
+			<% } %>	
+		<% }); %>
+	</ul>
+	
+	<h3>Prose</h3>
+	
+	<ul>
+		<% allNotifications.forEach(function(notification) { %>
+			<% if (notification.proseId) { %>
+				<li>
+					<a href="/proses/<%= notification.proseId %>">
+						<%= notification.proseName %>
+					</a>
+				</li>	
+			<% } %>	
+		<% }); %>
+	</ul>
+		
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+   <div class="fill"></div>
+</div>	
+	
+	<% include ../partials/footer %> 

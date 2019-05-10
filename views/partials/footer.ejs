@@ -1,0 +1,43 @@
+<footer class="footer">
+  <div class=class="col-md-12">
+    <div class="footer-nav">
+      <p style="margin:0">&copy; Josh Chacko 2019. All Rights Reserved.</p>
+      <em style="margin:0">The content on this site cannot be downloaded, printed, or copied without the written permission from Josh Chacko. </em> 
+      <script type="text/javascript" src="//counter.websiteout.net/js/19/0/0/0"></script>
+    </div>    
+  </div>
+</footer>
+       
+<!-- Boot Strap dependencies -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!-- Java Script. When we scroll beyond the height of Navbar, turn the color -->
+    <!-- Actual color change is defined in CSS -->
+    <!--<script>-->
+    <!--  $(function () {-->
+    <!--    $(document).scroll(function(){-->
+    <!--      var $nav = $("#mainNavbar");-->
+    <!--      $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());-->
+    <!--    });-->
+    <!--  });-->
+    <!--</script>-->
+    
+    <!--On a mobile device, only show the footer when the user scroll to bottom of the page-->
+    <script>
+      if($(window).width() < 1024){
+        $('.footer-nav').hide()
+        
+        $(window).scroll(function(){
+          if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+              $('.footer-nav').show()
+          }
+          else {
+            $('.footer-nav').hide()
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

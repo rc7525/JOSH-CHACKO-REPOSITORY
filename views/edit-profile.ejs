@@ -1,0 +1,47 @@
+<% include ./partials/header%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 normal-font">
+            <form  action="/users/<%= currentUser._id %>" method="POST" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h2>Profile Edit: <%= currentUser.firstName %> <%= currentUser.lastName %></h2>
+                    </div>
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                          <label class="required" for="inputAvatar">Avatar</label>
+                          <input class="form-control" id="inputAvatar" type="file" name="currentUser[avatar]" accept="image/*" required = 'required' autofocus></input>
+                    </div>  
+                    <div class="form-group col-md-6">
+                        <!--<input class="form-control" type="text" name="currentUser[avatar]" value="<%= currentUser.avatar %>" required = 'required'>-->
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="required" for="inputAbout">About Yourself</label>
+                        <textarea class="form-control rounded-0" id="inputAbout" rows="10" cols="500" name="currentUser[about]" required = 'required'><%= currentUser.about %></textarea>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="currentAvatar">Your Current Avatar</label>
+                        <img src="<%= currentUser.avatar %>" alt="user profile image">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button class="special-button" type="submit">Submit</button>
+                    </div>
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+            </form>
+        </div>    
+    </div>
+</div>    
+<% include ./partials/footer %>

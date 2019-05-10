@@ -1,0 +1,65 @@
+<% include ./partials/header%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 normal-font">
+            <form  action="/reset/<%=token %>" method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-12" style="text-align: center">
+                        <h2>Reset Password</h2>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="required" for="inputUsername">New Password</label>
+                        <input class="form-control" type="password" id="newPassword" name="password" placeholder="New Password" autofocus />
+                    </div>
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="required" for="inputPassword">Confirm Password</label>
+                        <input class="form-control" type="password" id="confirmPassword" name="confirm" placeholder="Confirm Password" autofocus />
+                    </div>
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <a class="href-class" href="/login">Back to Login</a>
+                    </div>
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button class="special-button" type="submit">Reset</button>
+                    </div>
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+                <div class="fill"></div>
+                <div class="fill"></div>
+                <div class="fill"></div>
+                <div class="fill"></div>
+                <div class="fill"></div>
+                <div class="fill"></div>
+                <div class="fill"></div>
+                <div class="fill"></div>
+                <div class="fill"></div>
+            </form>
+        </div>    
+    </div>
+</div>   
+
+<% include ./partials/footer %>
+

@@ -1,0 +1,62 @@
+<% include ../partials/header%>
+<div class="container">
+    <div class="row normal-font">
+        <div class="col-md-12">
+            <form  action="/register" method="POST" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group col-md-12" style="text-align: center">
+                        <h2>Admin Sign Up</h2>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label class="required" for="inputFirstname">First Name</label> 
+                      <input type="text" class="form-control" id="inputFirstname" name="firstName" placeholder="First Name" required = 'required' autofocus>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label class="required" for="lastLastname">Last Name</label>
+                      <input type="text" class="form-control" id="lastLastname" name="lastName" placeholder="Last Name" required = 'required' autofocus>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label class="required" for="inputUsername">Email address</label>
+                      <input type="email" class="form-control" id="inputUsername" name="username" placeholder="Email address" required = 'required' autofocus>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label class="required" for="inputPassword4">Password</label>
+                      <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password" required = 'required' autofocus>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                          <label class="required" for="inputAvatar">Avatar</label>
+                          <input class="form-control" id="inputAvatar" type="file" name="avatar" accept="image/*" placeholder="Your iconic respresentation" required = 'required' autofocus>
+                    </div>
+                    <div class="form-group col-md-6">
+                          <label class="required" for="inputAdminCode">Admin Code</label>
+                          <input type="password" class="form-control" id="inputAdminCode" name="adminCode" placeholder="Admin Code" autofocus>
+                    </div>
+                </div>  
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="required" for="inputAbout">About Yourself</label>
+                        <textarea class="form-control rounded-0" id="inputAbout" rows="5" cols="500" name="about" placeholder="Tell us about yourself" required = 'required' autofocus></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <button class="special-button" type="submit">Register</button>
+                    </div>
+                    <div class="form-group col-md-4">
+                    </div>
+                </div>
+                <div class="fill"></div>
+            </form>
+        </div>    
+    </div>
+</div>    
+<% include ../partials/footer %>

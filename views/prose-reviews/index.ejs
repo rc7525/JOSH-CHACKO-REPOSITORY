@@ -1,0 +1,64 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row normal-font">
+        <div class="col-md-12">
+            <h1 style="text-align: center">Review Page: <%= prose.name %></h1>
+            
+            <div class="thumbnail">
+                <div class="caption-full">
+                    <% if (prose.rating === 0) { %>
+                    <h5>
+                        <em>No reviews yet.</em>
+                    </h5>
+                    <% } else { %>
+                    <p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star <% if (prose.rating > 1.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (prose.rating > 2.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (prose.rating > 3.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (prose.rating > 4.5) { %> checked <% } %>"></span>
+                        <em>(total reviews: <%= prose.reviews.length %>)</em>
+                    </p>
+                    <p>
+                        Current Rating: <strong><%= prose.rating.toFixed(2) %></strong>
+                    </p>
+                    <p><h4>All reviews for this prose:</h4></p>
+                    <hr style="margin-top: 0;">
+                    <% prose.reviews.forEach(function(review){ %>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %><%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
+                             <em>Review By: <%= review.author.firstName%> <%= review.author.lastName%></em>
+                             <span><em><%= review.updatedAt.toLocaleDateString() %></em></span>
+                        </div>
+                        <div class="col-md-9">
+                            <p style="text-align: justify; word-wrap: break-word;">
+                                <%= review.text %>
+                            </p>
+                            <% if(currentUser && currentUser._id.equals(review.author.id) || currentUser &&  currentUser.isAdmin) { %>
+                                 <a class="special-button-green" href="/proses/<%= prose._id %>/reviews/<%=review._id %>/edit">Edit</a>
+                                 <form class="delete-form" action="/proses/<%= prose._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
+                                    <button class="special-button-red">Delete</button>
+                                 </form>
+                            <% } %>
+                        </div>
+                    </div>
+                    <hr>
+                    <% }); %>
+                    <% } %>
+                    <div>
+                        <a class="special-button-blue <% if (currentUser && prose.reviews.some(function (review) {return review.author.id.equals(currentUser._id)})) { %> disabled <% } %>" href="/proses/<%= prose._id %>/reviews/new">
+                            Write a New Review</a>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <a class="btn btn-default" href="/proses/<%= prose._id %>"><i class="fa fa-arrow-left"></i> Go back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Review section-->
+</div>
+
+<% include ../partials/footer %>

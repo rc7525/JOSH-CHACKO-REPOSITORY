@@ -16,6 +16,14 @@
                     <p>
                         <em>Submitted By: <a href="/users/<%= prose.author.id%>"><%= prose.author.firstName%> <%= prose.author.lastName%></a></em>
                         <span><em><%= prose.createdAt.toLocaleDateString() %></em></span>
+                        <div class="fill-small-width"></div>
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://safe-garden-78807.herokuapp.com//proses/<%= prose._id %>"><i class="fa fa-facebook"></i> Share on Facebook </a>
+                        <div class="fill-small-width"></div>
+                        <a href="whatsapp://send?text=https://www.facebook.com/sharer/sharer.php?u=https://safe-garden-78807.herokuapp.com//proses/<%= prose._id %>" data-action="share/whatsapp/share"><i class="fa fa-whatsapp"></i> Share via Whatsapp</a>
+                        <div class="fill-small-width"></div>
+                        <a target="_blank" href="https://twitter.com/intent/tweet?text=Josh Chacko&url=https://www.facebook.com/sharer/sharer.php?u=https://safe-garden-78807.herokuapp.com//proses/<%= prose._id %>&via=TWITTER-HANDLE"><i class="fa fa-twitter"></i> Tweet</a>
+                        <div class="fill-small-width"></div>
+                        <a target="_blank" href="http://www.reddit.com/submit?url=https://www.facebook.com/sharer/sharer.php?u=https://safe-garden-78807.herokuapp.com//proses/<%= prose._id %>&title=Josh Chacko"><i class="fa fa-reddit"></i> Share on Reddit</a>
                     </p>
                     <% if(currentUser && currentUser._id.equals(prose.author.id) || currentUser &&  currentUser.isAdmin) { %>
                         <a class="special-button-green special-font" href="/proses/<%= prose._id %>/edit">Edit</a>

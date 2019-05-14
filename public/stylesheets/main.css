@@ -336,8 +336,26 @@ h1, h2 {
 }
 
 .fill-small-width {
-  width:1px; 
+  width:30px; 
 }
+
+.facebook-style {
+  color:#3b5998; 
+}
+
+.whatsapp-style {
+  color:#4fce5d; 
+}
+
+.twitter-style {
+  color:#38A1F3; 
+}
+
+.reddit-style {
+  color:#ff4500; 
+}
+
+
 
 .center {
   display: block;

@@ -141,7 +141,7 @@ router.post("/forgot", function(req, res, next){
         function(token, done) {
             User.findOne({email:req.body.email}, function(err, user) {
                 if (!user) {
-                    req.flash('error', "No account with that email address esists");
+                    req.flash('error', "No account with that email address exists");
                     return res.redirect('/forgot');
                     
                 }
@@ -164,7 +164,7 @@ router.post("/forgot", function(req, res, next){
             var mailOptions = {
                     to: user.email,
                     from: process.env.EMAIL_ID,
-                    subject: 'Josh Chacko Password Reset',
+                    subject: 'joshchacko.com Password Reset',
                     text: 'Hello, \n\n' +
                         'You are receiving this email because you have requested the reset of the password for the Josh Chacko\'s Writing page. ' +
                         'Please click on the following link, or paste this into your browser to complete the process. ' +

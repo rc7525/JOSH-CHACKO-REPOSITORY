@@ -17,6 +17,7 @@ var poemRoutes              = require("./routes/poems"),
     
 require('dotenv').config();
 
+//Production database
 mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true, useCreateIndex: true});
 //Local Database
 //mongoose.connect("mongodb://localhost/josh_chacko", {useNewUrlParser: true, useCreateIndex: true});

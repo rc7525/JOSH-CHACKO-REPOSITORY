@@ -46,7 +46,7 @@
                         <img src="<%= poem.image %>" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title"><strong><%= poem.name %></strong></h5>
-                            <em class="normal-font"> <%- poem.body.substring(0,50) %> ...</em>
+                            <em class="normal-font"> <%- poem.body.substring(0,15) %> ...</em>
                             <p></p>
                             <% if (poem.rating === 0) { %>
                                 <em class="normal-font">No reviews yet.</em>

@@ -35,12 +35,13 @@
    
                 <div class="row text-center" id="prose-grid">
                 <% proses.forEach(function(prose){ %>
-                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="col-lg-3 d-flex align-items-stretch">
+                <!--<div class="col-lg-3 col-md-4 col-sm-6 mb-4">-->
                     <div class="card">
                         <img src="<%= prose.image %>" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title"><strong><%= prose.name %></strong></h5>
-                            <em class="normal-font"> <%- prose.body.substring(0,50) %> ...</em>
+                            <em class="normal-font"> <%- prose.body.substring(0,15) %> ...</em>
                             <p></p>
                             <% if (prose.rating === 0) { %>
                                 <em class="normal-font">No reviews yet.</em>
